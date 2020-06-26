@@ -9,8 +9,6 @@ from PIL import Image
 driver = webdriver.Chrome('U:\Documents\Proyectos\Wink\chromedriver.exe') 
 driver.get('http://web.whatsapp.com')
 
-filepath = 'Yara.png'
-image = Image.open(filepath)
 
 def copyImageToClipboard(path):
    
@@ -31,7 +29,7 @@ def copyImageToClipboard(path):
 
 
 
-while True:
+def mensajeCualquiera():
        
    k = input('Pulsa M para enviar un mensaje F para enviar una foto: ')
    if k == 'm' or k == 'M':
@@ -66,4 +64,13 @@ while True:
       send.click()
    
         
-        
+def MensajeYara():
+   
+      name = 'Yara'
+      user = driver.find_element_by_xpath('//span[@title = "{}"]'.format(name))
+      user.click()
+      
+      msg = "ILY"
+      
+      msg_box = driver.find_element_by_class_name('_3uMse')
+      msg_box.send_keys(msg+ Keys.ENTER)

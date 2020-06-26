@@ -4,17 +4,20 @@ import time
 import cv2
 import webbrowser
 import PyTorchTest
+import Whatsapp
 
 
-url = "https://www.twitch.tv/directory/following"
-bol = False
+twitch = "https://www.twitch.tv/directory/following"
+yt = "https://www.youtube.com/feed/subscriptions?flow=2"
+bolTW = False
+bolYT = False
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 COLORS = np.random.uniform(0, 255, size=(2, 3))
 
 print("[INFO] starting video stream...")
 vs = cv2.VideoCapture(0)
 time.sleep(2.0)
-bol = False
+
 name = "0"
 
 def maxPos(list):
@@ -31,8 +34,10 @@ def orderPredicciones(names):
     
 	predictions = []
 	predictions = str(names)
-	predictions = predictions[2:len(predictions)-1]
-	predictions = predictions.split("\', ")
+	predictions = predictions[2:len(predictions)-2]
+	predictions = predictions.split(",")
+	if len(predictions) < 1:
+		return -1
 	print("The predictions are: ")
 	print(predictions)
 	print()
@@ -44,13 +49,13 @@ def orderScores(scores):
 	score = str(scores)[8:]
 	score = score[:len(score)-2]
 	points = score.split(',')
- 
+	if len(points) < 1:
+		return -1,-1
+	
 	pos = maxPos(points)
  
 	print("The scores are: ")
 	print(points)
-	print()
-	print("Hihgest score is in position: " + str(pos))
 	print()
 	return points, pos
     
@@ -66,46 +71,65 @@ while True:
 
 	#Get the predictions and scores fom the model
 	names, scores =  PyTorchTest.detection(frame)
+	#if there are no detections do nothing
+	if names != []:
 
-	#Get predictions in an array of stings
-	predictions = orderPredicciones(names)
-	
-	#Get the position of the maximum score and the array with the scores in str
-	scores , pos = orderScores(scores)
-	
-	#Print the highest score prediction and save it
-	print("Prediction: " + predictions[pos])
-	name = predictions[pos]
-	
-	
-	
-	#Try and convert the highst score to a float
-	try:
-		Rscore= float(scores[pos])
-	except ValueError:
-		print("Sin detecciones")
-	
-	#Check prections and act accordingly, has to be above a threshhold
-	if name == '\'One\'' and Rscore > 0.6:
-		'''
-		if bol == False:
-			counter = time.time()
-			bol = True
-			webbrowser.get(chrome_path).open(url)
-
-		elif bol == True:
-			counter2 = time.time()
-			if counter2 - counter > 10:
-				webbrowser.get(chrome_path).open(url)
+		#Get predictions in an array of stings
+		predictions = orderPredicciones(names)
+		
+		#Get the position of the maximum score and the array with the scores in str
+		scores , pos = orderScores(scores)
+		
+		#Print the highest score prediction and save it
+		if predictions != -1:
+			print("Prediction: " + predictions[pos])
+			name = predictions[pos]
+			
+		
+		
+		#Try and convert the highst score to a float
+		try:
+			Rscore= float(scores[pos])
+		except ValueError:
+			print("Sin detecciones")
+		
+		#Check prections and act accordingly, has to be above a threshhold
+		if 'One' in name and Rscore > 0.4:
+			
+			if bolTW == False:
 				counter = time.time()
-		'''
-		print("oneeeeeeeeeeeeeeeeeeeee")
-  
-	elif name == 'Peace' and Rscore > 0.6:	
-		print("peaceeeeeeeeeeeeeeeeeeeee")
+				bolTW = True
+				webbrowser.get(chrome_path).open(twitch)
 
-	#End of analisis of a frame
-	print('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||')
+			elif bolTW == True:
+				counter2 = time.time()
+				if counter2 - counter > 10:
+					webbrowser.get(chrome_path).open(twitch)
+					counter = time.time()
+			
+			
+	
+		elif 'Peace' in name and Rscore > 0.4:
+			
+			if bolYT == False:
+				counter = time.time()
+				bolYT = True
+				#webbrowser.get(chrome_path).open(yt)
+				Whatsapp.MensajeYara()
+
+			elif bolYT == True:
+				counter2 = time.time()
+				if counter2 - counter > 10:
+					#webbrowser.get(chrome_path).open(yt)
+					Whatsapp.MensajeYara()
+					counter = time.time()
+			
+			
+
+		#End of analisis of a frame
+		print('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||')
+	#End predictions if
+ 
 	#Show frame on screen
 	cv2.imshow("Frame", frame)
 	
