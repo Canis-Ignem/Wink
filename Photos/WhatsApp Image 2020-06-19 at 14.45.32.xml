@@ -1,0 +1,38 @@
+<annotation>
+	<folder>Photos</folder>
+	<filename>WhatsApp Image 2020-06-19 at 14.45.32.jpeg</filename>
+	<path>U:\Documents\Proyectos\Wink\Photos\WhatsApp Image 2020-06-19 at 14.45.32.jpeg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1824</width>
+		<height>1368</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Wink</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>621</xmin>
+			<ymin>247</ymin>
+			<xmax>790</xmax>
+			<ymax>313</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>Wink</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1184</xmin>
+			<ymin>245</ymin>
+			<xmax>1347</xmax>
+			<ymax>309</ymax>
+		</bndbox>
+	</object>
+</annotation>
