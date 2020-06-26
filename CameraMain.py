@@ -99,12 +99,14 @@ while True:
 			if bolTW == False:
 				counter = time.time()
 				bolTW = True
-				webbrowser.get(chrome_path).open(twitch)
+				#webbrowser.get(chrome_path).open(twitch)
+				Whatsapp.MensajeYara2()
 
 			elif bolTW == True:
 				counter2 = time.time()
 				if counter2 - counter > 10:
-					webbrowser.get(chrome_path).open(twitch)
+					#webbrowser.get(chrome_path).open(twitch)
+					Whatsapp.MensajeYara2()
 					counter = time.time()
 			
 			

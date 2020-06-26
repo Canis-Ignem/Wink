@@ -74,3 +74,15 @@ def MensajeYara():
       
       msg_box = driver.find_element_by_class_name('_3uMse')
       msg_box.send_keys(msg+ Keys.ENTER)
+
+
+def MensajeYara2():
+       
+      name = 'Yara'
+      user = driver.find_element_by_xpath('//span[@title = "{}"]'.format(name))
+      user.click()
+      
+      msg = "Eres la mejor"
+      
+      msg_box = driver.find_element_by_class_name('_3uMse')
+      msg_box.send_keys(msg+ Keys.ENTER)
