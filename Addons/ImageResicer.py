@@ -9,12 +9,14 @@ def rescale_images(directory, size):
     im_resized.save(directory+img)
 
 
+'''
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description="Rescale images")
   parser.add_argument('-d', '--directory', type=str, required=True, help='Directory containing the images')
   parser.add_argument('-s', '--size', type=int, nargs=2, required=True, metavar=('width', 'height'), help='Image size')
   args = parser.parse_args()
   rescale_images(args.directory, args.size)
+'''
 
 ##run this command
 ##python convert_image_resolution.py -d images/ -s 800 600
