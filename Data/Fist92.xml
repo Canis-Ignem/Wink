@@ -1,0 +1,26 @@
+<annotation>
+	<folder>frames</folder>
+	<filename>Fist92.jpg</filename>
+	<path>/home/jon/Documents/Proyectos/Wink-master/Addons/frames/Fist92.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>352</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Fist</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>303</xmin>
+			<ymin>98</ymin>
+			<xmax>519</xmax>
+			<ymax>352</ymax>
+		</bndbox>
+	</object>
+</annotation>
