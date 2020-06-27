@@ -4,7 +4,7 @@ import time
 import cv2
 import webbrowser
 import PyTorchTest
-import Whatsapp
+#import Whatsapp
 
 
 twitch = "https://www.twitch.tv/directory/following"
@@ -12,7 +12,6 @@ yt = "https://www.youtube.com/feed/subscriptions?flow=2"
 bolTW = False
 bolYT = False
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
-COLORS = np.random.uniform(0, 255, size=(2, 3))
 
 print("[INFO] starting video stream...")
 vs = cv2.VideoCapture(0)
@@ -94,36 +93,36 @@ while True:
 			print("Sin detecciones")
 		
 		#Check prections and act accordingly, has to be above a threshhold
-		if 'One' in name and Rscore > 0.4:
+		if 'One' in name and Rscore > 0.6:
 			
 			if bolTW == False:
 				counter = time.time()
 				bolTW = True
-				#webbrowser.get(chrome_path).open(twitch)
-				Whatsapp.MensajeYara2()
+				webbrowser.get(chrome_path).open(twitch)
+				#Whatsapp.MensajeYara2()
 
 			elif bolTW == True:
 				counter2 = time.time()
 				if counter2 - counter > 10:
-					#webbrowser.get(chrome_path).open(twitch)
-					Whatsapp.MensajeYara2()
+					webbrowser.get(chrome_path).open(twitch)
+					#Whatsapp.MensajeYara2()
 					counter = time.time()
 			
 			
 	
-		elif 'Peace' in name and Rscore > 0.4:
+		elif 'Peace' in name and Rscore > 0.65:
 			
 			if bolYT == False:
 				counter = time.time()
 				bolYT = True
-				#webbrowser.get(chrome_path).open(yt)
-				Whatsapp.MensajeYara()
+				webbrowser.get(chrome_path).open(yt)
+				#Whatsapp.MensajeYara()
 
 			elif bolYT == True:
 				counter2 = time.time()
 				if counter2 - counter > 10:
-					#webbrowser.get(chrome_path).open(yt)
-					Whatsapp.MensajeYara()
+					webbrowser.get(chrome_path).open(yt)
+					#Whatsapp.MensajeYara()
 					counter = time.time()
 			
 			
