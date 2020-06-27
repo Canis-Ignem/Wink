@@ -3,12 +3,13 @@ import argparse
 import time
 import cv2
 import webbrowser
-import PyTorchTest
+import Predictor
 #import Whatsapp
 
 
 twitch = "https://www.twitch.tv/directory/following"
 yt = "https://www.youtube.com/feed/subscriptions?flow=2"
+music= "https://www.youtube.com/watch?v=3cedABWfEBw&list=PLaLWNpJCbH_r_0jG3o4r_kUtLB1gUFUdX"
 bolTW = False
 bolYT = False
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
@@ -69,7 +70,7 @@ while True:
 
 
 	#Get the predictions and scores fom the model
-	names, scores =  PyTorchTest.detection(frame)
+	names, scores =  Predictor.detection(frame)
 	#if there are no detections do nothing
 	if names != []:
 
@@ -124,7 +125,21 @@ while True:
 					webbrowser.get(chrome_path).open(yt)
 					#Whatsapp.MensajeYara()
 					counter = time.time()
-			
+		
+		elif 'Fist' in name and Rscore > 0.5:
+      
+			if bolYT == False:
+    				counter = time.time()
+				bolYT = True
+				webbrowser.get(chrome_path).open(music)
+				#Whatsapp.MensajeYara()
+
+			elif bolYT == True:
+				counter2 = time.time()
+				if counter2 - counter > 10:
+					webbrowser.get(chrome_path).open(music)
+					#Whatsapp.MensajeYara()
+					counter = time.time()
 			
 
 		#End of analisis of a frame

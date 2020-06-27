@@ -1,6 +1,6 @@
 from detecto import core, utils
 
-model = core.Model(['One','Peace'])
+model = core.Model(['One','Peace','Fist'])
 
 dataset = core.Dataset('Data/')
 #loader = core.DataLoader(dataset, batch_size = 2, shuffle = True)
