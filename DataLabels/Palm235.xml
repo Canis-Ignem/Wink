@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Frames</folder>
+	<filename>Palm235.jpg</filename>
+	<path>U:\Documents\Proyectos\Wink\Addons\Frames\Palm235.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>352</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Palm</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>193</xmin>
+			<ymin>102</ymin>
+			<xmax>316</xmax>
+			<ymax>274</ymax>
+		</bndbox>
+	</object>
+</annotation>

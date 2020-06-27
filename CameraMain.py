@@ -12,6 +12,7 @@ yt = "https://www.youtube.com/feed/subscriptions?flow=2"
 music= "https://www.youtube.com/watch?v=3cedABWfEBw&list=PLaLWNpJCbH_r_0jG3o4r_kUtLB1gUFUdX"
 bolTW = False
 bolYT = False
+bolMusic = False
 chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 
 print("[INFO] starting video stream...")
@@ -30,7 +31,7 @@ def maxPos(list):
     return pos
 
 #From the names the model returns make an array with the predictions
-def orderPredicciones(names):
+def getPredictions(names):
     
 	predictions = []
 	predictions = str(names)
@@ -44,7 +45,7 @@ def orderPredicciones(names):
 	return predictions
 
 #From the socres of the model get an array with the scores and the position of the highest one
-def orderScores(scores):
+def getScores(scores):
     
 	score = str(scores)[8:]
 	score = score[:len(score)-2]
@@ -58,6 +59,27 @@ def orderScores(scores):
 	print(points)
 	print()
 	return points, pos
+
+def getBox(boxes):
+	boxesAux = []
+	for box in boxes:
+		boxesAux.append(box)
+		break
+	try:
+		box = str(boxesAux)[9:]
+		box = box[:len(box)-3]
+		aux = box.split(",")
+		boxes = []
+		print("cajas antes")
+		print(aux)
+		for i in range(len(aux)):
+			a= float(aux[i])
+			boxes.append(int(a))
+		
+		return boxes
+	except ValueError:
+			return -1;
+    
     
 #Main cicle
 while True:
@@ -70,15 +92,18 @@ while True:
 
 
 	#Get the predictions and scores fom the model
-	names, scores =  Predictor.detection(frame)
+	names, scores, boxes =  Predictor.detection(frame)
+	box = getBox(boxes)
+
+
 	#if there are no detections do nothing
 	if names != []:
 
 		#Get predictions in an array of stings
-		predictions = orderPredicciones(names)
+		predictions = getPredictions(names)
 		
 		#Get the position of the maximum score and the array with the scores in str
-		scores , pos = orderScores(scores)
+		scores , pos = getScores(scores)
 		
 		#Print the highest score prediction and save it
 		if predictions != -1:
@@ -94,7 +119,7 @@ while True:
 			print("Sin detecciones")
 		
 		#Check prections and act accordingly, has to be above a threshhold
-		if 'One' in name and Rscore > 0.6:
+		if 'Palm' in name and Rscore > 0.7:
 			
 			if bolTW == False:
 				counter = time.time()
@@ -111,7 +136,7 @@ while True:
 			
 			
 	
-		elif 'Peace' in name and Rscore > 0.65:
+		elif 'Peace' in name and Rscore > 0.7:
 			
 			if bolYT == False:
 				counter = time.time()
@@ -126,15 +151,15 @@ while True:
 					#Whatsapp.MensajeYara()
 					counter = time.time()
 		
-		elif 'Fist' in name and Rscore > 0.5:
+		elif 'Fist' in name and Rscore > 0.7:
       
-			if bolYT == False:
-    				counter = time.time()
-				bolYT = True
+			if bolMusic == False:
+				counter = time.time()
+				bolMusic = True
 				webbrowser.get(chrome_path).open(music)
 				#Whatsapp.MensajeYara()
 
-			elif bolYT == True:
+			elif bolMusic == True:
 				counter2 = time.time()
 				if counter2 - counter > 10:
 					webbrowser.get(chrome_path).open(music)
@@ -146,6 +171,9 @@ while True:
 		print('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||')
 	#End predictions if
  
+	#Cuadrado
+	if box != -1 and Rscore > 0.7:
+		cv2.rectangle(frame, (box[0],box[1]), (box[2],box[3]), (255,0,0),2 )
 	#Show frame on screen
 	cv2.imshow("Frame", frame)
 	

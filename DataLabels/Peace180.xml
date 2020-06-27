@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Frames</folder>
+	<filename>Peace180.jpg</filename>
+	<path>U:\Documents\Proyectos\Wink\Addons\Frames\Peace180.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>640</width>
+		<height>352</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Peace</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>225</xmin>
+			<ymin>115</ymin>
+			<xmax>353</xmax>
+			<ymax>300</ymax>
+		</bndbox>
+	</object>
+</annotation>
