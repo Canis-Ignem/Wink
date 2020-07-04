@@ -4,6 +4,7 @@ import time
 import cv2
 import webbrowser
 import Predictor
+import numpy
 #import Whatsapp
 
 
