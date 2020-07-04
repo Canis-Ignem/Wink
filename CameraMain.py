@@ -61,17 +61,19 @@ def getScores(scores):
 	return points, pos
 
 def getBox(boxes):
+    
 	boxesAux = []
 	for box in boxes:
 		boxesAux.append(box)
 		break
+
 	try:
+     
 		box = str(boxesAux)[9:]
 		box = box[:len(box)-3]
 		aux = box.split(",")
 		boxes = []
-		print("cajas antes")
-		print(aux)
+
 		for i in range(len(aux)):
 			a= float(aux[i])
 			boxes.append(int(a))
@@ -124,13 +126,13 @@ while True:
 			if bolTW == False:
 				counter = time.time()
 				bolTW = True
-				webbrowser.get(chrome_path).open(twitch)
+				#webbrowser.get(chrome_path).open(twitch)
 				#Whatsapp.MensajeYara2()
 
 			elif bolTW == True:
 				counter2 = time.time()
 				if counter2 - counter > 10:
-					webbrowser.get(chrome_path).open(twitch)
+					#webbrowser.get(chrome_path).open(twitch)
 					#Whatsapp.MensajeYara2()
 					counter = time.time()
 			
@@ -141,13 +143,13 @@ while True:
 			if bolYT == False:
 				counter = time.time()
 				bolYT = True
-				webbrowser.get(chrome_path).open(yt)
+				#webbrowser.get(chrome_path).open(yt)
 				#Whatsapp.MensajeYara()
 
 			elif bolYT == True:
 				counter2 = time.time()
 				if counter2 - counter > 10:
-					webbrowser.get(chrome_path).open(yt)
+					#webbrowser.get(chrome_path).open(yt)
 					#Whatsapp.MensajeYara()
 					counter = time.time()
 		
@@ -156,13 +158,13 @@ while True:
 			if bolMusic == False:
 				counter = time.time()
 				bolMusic = True
-				webbrowser.get(chrome_path).open(music)
+				#webbrowser.get(chrome_path).open(music)
 				#Whatsapp.MensajeYara()
 
 			elif bolMusic == True:
 				counter2 = time.time()
 				if counter2 - counter > 10:
-					webbrowser.get(chrome_path).open(music)
+					#webbrowser.get(chrome_path).open(music)
 					#Whatsapp.MensajeYara()
 					counter = time.time()
 			
@@ -175,7 +177,7 @@ while True:
 	if box != -1 and Rscore > 0.7:
 		cv2.rectangle(frame, (box[0],box[1]), (box[2],box[3]), (255,0,0),2 )
 	#Show frame on screen
-	cv2.imshow("Frame", frame)
+	cv2.imshow("FrameQ", frame)
 	
 	#Shu down the script with the letter 'Q'
 	key = cv2.waitKey(1) & 0xFF

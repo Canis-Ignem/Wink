@@ -10,7 +10,7 @@ utils.xml_to_csv('ValLabels/', 'val_labels.csv')
 custom_transforms = transforms.Compose([
     transforms.ToPILImage(),
     transforms.Resize(800),
-    transforms.ColorJitter(saturation=0.8),
+    transforms.ColorJitter(saturation=0.3),
     transforms.ToTensor(),
     utils.normalize_transform(),
 ])
