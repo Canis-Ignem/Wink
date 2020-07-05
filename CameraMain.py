@@ -6,6 +6,7 @@ import webbrowser
 import Predictor
 import numpy
 #import Whatsapp
+import MusicPlayer
 
 
 twitch = "https://www.twitch.tv/directory/following"
@@ -18,7 +19,7 @@ chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
 
 print("[INFO] starting video stream...")
 vs = cv2.VideoCapture(0)
-time.sleep(2.0)
+#time.sleep(2.0)
 
 name = "0"
 
@@ -122,51 +123,57 @@ while True:
 			print("Sin detecciones")
 		
 		#Check prections and act accordingly, has to be above a threshhold
-		if 'Palm' in name and Rscore > 0.85:
+		if 'Palm' in name and Rscore > 0.9:
 			
 			if bolTW == False:
 				counter = time.time()
 				bolTW = True
 				#webbrowser.get(chrome_path).open(twitch)
 				#Whatsapp.MensajeYara2()
+				MusicPlayer.pauseList()
 
 			elif bolTW == True:
 				counter2 = time.time()
-				if counter2 - counter > 10:
+				if counter2 - counter > 5:
 					#webbrowser.get(chrome_path).open(twitch)
 					#Whatsapp.MensajeYara2()
+					MusicPlayer.pauseList()
 					counter = time.time()
 			
 			
 	
-		elif 'Peace' in name and Rscore > 0.85:
+		elif 'Peace' in name and Rscore > 0.9:
 			
 			if bolYT == False:
 				counter = time.time()
 				bolYT = True
 				#webbrowser.get(chrome_path).open(yt)
 				#Whatsapp.MensajeYara()
+				MusicPlayer.skip()
 
 			elif bolYT == True:
 				counter2 = time.time()
-				if counter2 - counter > 10:
+				if counter2 - counter > 5:
 					#webbrowser.get(chrome_path).open(yt)
 					#Whatsapp.MensajeYara()
+					MusicPlayer.skip()
 					counter = time.time()
 		
-		elif 'Fist' in name and Rscore > 0.85:
+		elif 'Ok' in name and Rscore > 0.9:
       
 			if bolMusic == False:
 				counter = time.time()
 				bolMusic = True
+				MusicPlayer.OpenPlaylist()
 				#webbrowser.get(chrome_path).open(music)
 				#Whatsapp.MensajeYara()
 
 			elif bolMusic == True:
 				counter2 = time.time()
-				if counter2 - counter > 10:
+				if counter2 - counter > 5:
 					#webbrowser.get(chrome_path).open(music)
 					#Whatsapp.MensajeYara()
+					MusicPlayer.OpenPlaylist()
 					counter = time.time()
 			
 

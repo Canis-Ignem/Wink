@@ -1,7 +1,7 @@
 from detecto import core, utils
 from torchvision import transforms
 
-model = core.Model(['Palm','Peace','Fist'])
+model = core.Model(['Palm','Peace','Fist','Ok'])
 
 
 utils.xml_to_csv('DataLabels/', 'train_labels.csv')
