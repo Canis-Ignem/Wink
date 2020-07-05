@@ -30,37 +30,49 @@ randomPlaylist = "Shuffle playlist"
 volumeBotton = "ytp-mute-button ytp-button"
 
 def OpenPlaylist():
-    
-    driver.get("https://www.youtube.com/watch?v=3cedABWfEBw&list=PLaLWNpJCbH_r_0jG3o4r_kUtLB1gUFUdX")
-    driver.minimize_window()
-    volume5()
-    sleep(1)
-    shuffle = driver.find_element_by_xpath('//button[@aria-label="'+randomPlaylist+'"]')
-    shuffle.click()
-    
+    try:
+        driver.get("https://www.youtube.com/watch?v=3cedABWfEBw&list=PLaLWNpJCbH_r_0jG3o4r_kUtLB1gUFUdX")
+        driver.minimize_window()
+        volume5()
+        sleep(1)
+        shuffle = driver.find_element_by_xpath('//button[@aria-label="'+randomPlaylist+'"]')
+        shuffle.click()
+    except:
+        pass    
 #Pause the current video
 def pause():
     # play the video
     #wait.until(visible((By.ID, "video-title")))
     #driver.find_element_by_id("video-title").click()
-    play = driver.find_element_by_xpath('//a[@href="'+playVideo+'"]')
-    play.click()
+    try:
+        play = driver.find_element_by_xpath('//a[@href="'+playVideo+'"]')
+        play.click()
+    except:
+        pass
 
 #Pause the current video from a playlist
 def pauseList():
-    
-    play = driver.find_element_by_xpath('//button[@class="'+playList+'"]')
-    play.click()
+    try:
+        play = driver.find_element_by_xpath('//button[@class="'+playList+'"]')
+        play.click()
+    except:
+        pass
 
 #Skip to next video
 def skip():
-    skip = driver.find_element_by_xpath('//a[@class="'+skipVideo+'"]')
-    skip.click()
+    try:
+        skip = driver.find_element_by_xpath('//a[@class="'+skipVideo+'"]')
+        skip.click()
+    except:
+        pass
 
 #Sets de volume to 5%
 def volume5():
-    volume = driver.find_element_by_xpath('//button[@class="'+volumeBotton+'"]')
-    volume.send_keys(Keys.ARROW_DOWN *19)
+    try:
+        volume = driver.find_element_by_xpath('//button[@class="'+volumeBotton+'"]')
+        volume.send_keys(Keys.ARROW_DOWN *19)
+    except:
+        pass
     
 
 
