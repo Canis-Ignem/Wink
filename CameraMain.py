@@ -134,7 +134,7 @@ while True:
 
 			elif bolTW == True:
 				counter2 = time.time()
-				if counter2 - counter > 5:
+				if counter2 - counter > 2:
 					#webbrowser.get(chrome_path).open(twitch)
 					#Whatsapp.MensajeYara2()
 					MusicPlayer.pauseList()
@@ -153,7 +153,7 @@ while True:
 
 			elif bolYT == True:
 				counter2 = time.time()
-				if counter2 - counter > 5:
+				if counter2 - counter > 2:
 					#webbrowser.get(chrome_path).open(yt)
 					#Whatsapp.MensajeYara()
 					MusicPlayer.skip()
@@ -170,7 +170,7 @@ while True:
 
 			elif bolMusic == True:
 				counter2 = time.time()
-				if counter2 - counter > 5:
+				if counter2 - counter > 2:
 					#webbrowser.get(chrome_path).open(music)
 					#Whatsapp.MensajeYara()
 					MusicPlayer.OpenPlaylist()
