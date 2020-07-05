@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Frames</folder>
+	<filename>OkL142.jpg</filename>
+	<path>U:\Documents\Proyectos\Wink\Addons\Frames\OkL142.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1920</width>
+		<height>1080</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Ok</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>844</xmin>
+			<ymin>276</ymin>
+			<xmax>1165</xmax>
+			<ymax>776</ymax>
+		</bndbox>
+	</object>
+</annotation>

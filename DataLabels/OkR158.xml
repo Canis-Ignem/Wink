@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Frames</folder>
+	<filename>OkR158.jpg</filename>
+	<path>U:\Documents\Proyectos\Wink\Addons\Frames\OkR158.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1920</width>
+		<height>1080</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Ok</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>584</xmin>
+			<ymin>496</ymin>
+			<xmax>907</xmax>
+			<ymax>977</ymax>
+		</bndbox>
+	</object>
+</annotation>

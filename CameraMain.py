@@ -122,7 +122,7 @@ while True:
 			print("Sin detecciones")
 		
 		#Check prections and act accordingly, has to be above a threshhold
-		if 'Palm' in name and Rscore > 0.7:
+		if 'Palm' in name and Rscore > 0.85:
 			
 			if bolTW == False:
 				counter = time.time()
@@ -139,7 +139,7 @@ while True:
 			
 			
 	
-		elif 'Peace' in name and Rscore > 0.7:
+		elif 'Peace' in name and Rscore > 0.85:
 			
 			if bolYT == False:
 				counter = time.time()
@@ -154,7 +154,7 @@ while True:
 					#Whatsapp.MensajeYara()
 					counter = time.time()
 		
-		elif 'Fist' in name and Rscore > 0.7:
+		elif 'Fist' in name and Rscore > 0.85:
       
 			if bolMusic == False:
 				counter = time.time()

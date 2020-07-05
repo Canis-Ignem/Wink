@@ -26,7 +26,7 @@ val_dataset = core.Dataset('val_labels.csv','ValData/')
 
 
 #Fitting the model in a custom manner
-losses = model.fit(loader, val_dataset, epochs=5,
+losses = model.fit(loader, val_dataset, epochs=7,
                    learning_rate=0.001, verbose=True)
 
 model.save('Gestures5.pth')

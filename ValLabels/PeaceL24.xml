@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Frames</folder>
+	<filename>PeaceL24.jpg</filename>
+	<path>U:\Documents\Proyectos\Wink\Addons\Frames\PeaceL24.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1920</width>
+		<height>1080</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Peace</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1737</xmin>
+			<ymin>403</ymin>
+			<xmax>1920</xmax>
+			<ymax>755</ymax>
+		</bndbox>
+	</object>
+</annotation>
