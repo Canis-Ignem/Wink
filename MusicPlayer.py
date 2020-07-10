@@ -31,7 +31,8 @@ volumeBotton = "ytp-mute-button ytp-button"
 
 def OpenPlaylist():
     try:
-        driver.get("https://www.youtube.com/watch?v=3cedABWfEBw&list=PLaLWNpJCbH_r_0jG3o4r_kUtLB1gUFUdX")
+        driver.get("https://www.youtube.com/watch?v=Nj2U6rhnucI&list=PLyORnIW1xT6waC0PNjAMj33FdK2ngL_ik")
+        #Having the window minimized does affect selenium performance, comment the line below to have it react faster
         driver.minimize_window()
         volume5()
         sleep(1)

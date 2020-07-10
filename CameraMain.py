@@ -9,9 +9,8 @@ import numpy
 import MusicPlayer
 
 
-twitch = "https://www.twitch.tv/directory/following"
-yt = "https://www.youtube.com/feed/subscriptions?flow=2"
-music= "https://www.youtube.com/watch?v=3cedABWfEBw&list=PLaLWNpJCbH_r_0jG3o4r_kUtLB1gUFUdX"
+
+music= "https://www.youtube.com/watch?v=Nj2U6rhnucI&list=PLyORnIW1xT6waC0PNjAMj33FdK2ngL_ik"
 bolTW = False
 bolYT = False
 bolMusic = False
@@ -120,7 +119,7 @@ while True:
 		try:
 			Rscore= float(scores[pos])
 		except ValueError:
-			print("Sin detecciones")
+			print("No detections")
 		
 		#Check prections and act accordingly, has to be above a threshhold
 		if 'Palm' in name and Rscore > 0.9:
@@ -128,15 +127,11 @@ while True:
 			if bolTW == False:
 				counter = time.time()
 				bolTW = True
-				#webbrowser.get(chrome_path).open(twitch)
-				#Whatsapp.MensajeYara2()
 				MusicPlayer.pauseList()
 
 			elif bolTW == True:
 				counter2 = time.time()
 				if counter2 - counter > 2:
-					#webbrowser.get(chrome_path).open(twitch)
-					#Whatsapp.MensajeYara2()
 					MusicPlayer.pauseList()
 					counter = time.time()
 			
@@ -147,15 +142,11 @@ while True:
 			if bolYT == False:
 				counter = time.time()
 				bolYT = True
-				#webbrowser.get(chrome_path).open(yt)
-				#Whatsapp.MensajeYara()
 				MusicPlayer.skip()
 
 			elif bolYT == True:
 				counter2 = time.time()
 				if counter2 - counter > 2:
-					#webbrowser.get(chrome_path).open(yt)
-					#Whatsapp.MensajeYara()
 					MusicPlayer.skip()
 					counter = time.time()
 		
@@ -165,14 +156,10 @@ while True:
 				counter = time.time()
 				bolMusic = True
 				MusicPlayer.OpenPlaylist()
-				#webbrowser.get(chrome_path).open(music)
-				#Whatsapp.MensajeYara()
 
 			elif bolMusic == True:
 				counter2 = time.time()
 				if counter2 - counter > 2:
-					#webbrowser.get(chrome_path).open(music)
-					#Whatsapp.MensajeYara()
 					MusicPlayer.OpenPlaylist()
 					counter = time.time()
 			
@@ -184,8 +171,8 @@ while True:
 	#Cuadrado
 	if box != -1 and Rscore > 0.7:
 		cv2.rectangle(frame, (box[0],box[1]), (box[2],box[3]), (255,0,0),2 )
-	#Show frame on screen
-	cv2.imshow("FrameQ", frame)
+	# un comment to show frame on screen 
+	#cv2.imshow("FrameQ", frame)
 	
 	#Shu down the script with the letter 'Q'
 	key = cv2.waitKey(1) & 0xFF
