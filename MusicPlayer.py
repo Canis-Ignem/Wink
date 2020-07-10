@@ -7,14 +7,17 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-
+##############READ TO USE AN ADBLOCKER
+#add your user at 'User' and uncomment the below lines to use uBlock
 uBlock = path_to_extension = r'C:\Users\Jon Perez\AppData\Local\Google\Chrome\User Data\Default\Extensions\cjpalhdlnbpafiamejdnhcphjbkeiagm\1.27.10_0'
 chrome_options = Options()
 chrome_options.add_argument('load-extension=' + uBlock)
+driver = webdriver.Chrome(chrome_options=chrome_options)
+#driver = webdriver.Chrome("./chromedriver.exe")
+driver.create_options()
+
 presence = EC.presence_of_element_located
 visible = EC.visibility_of_element_located
-driver = webdriver.Chrome(chrome_options=chrome_options)
-driver.create_options()
 
 '''
 driver = webdriver.Chrome(chrome_options=chrome_options)
@@ -33,7 +36,7 @@ def OpenPlaylist():
     try:
         driver.get("https://www.youtube.com/watch?v=Nj2U6rhnucI&list=PLyORnIW1xT6waC0PNjAMj33FdK2ngL_ik")
         #Having the window minimized does affect selenium performance, comment the line below to have it react faster
-        driver.minimize_window()
+        #driver.minimize_window()
         volume5()
         sleep(1)
         shuffle = driver.find_element_by_xpath('//button[@aria-label="'+randomPlaylist+'"]')
@@ -72,6 +75,12 @@ def volume5():
     try:
         volume = driver.find_element_by_xpath('//button[@class="'+volumeBotton+'"]')
         volume.send_keys(Keys.ARROW_DOWN *19)
+    except:
+        pass
+    
+def close():
+    try:
+        driver.close()
     except:
         pass
     
