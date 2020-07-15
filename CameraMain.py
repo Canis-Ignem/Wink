@@ -169,10 +169,10 @@ while True:
 	#End predictions if
  
 	#Cuadrado
-	if box != -1 and Rscore > 0.7:
-		cv2.rectangle(frame, (box[0],box[1]), (box[2],box[3]), (255,0,0),2 )
+	#if box != -1 and Rscore > 0.7:
+	#	cv2.rectangle(frame, (box[0],box[1]), (box[2],box[3]), (255,0,0),2 )
 	# un comment to show frame on screen 
-	cv2.imshow("FrameQ", frame)
+	#cv2.imshow("FrameQ", frame)
 	
 	#Shu down the script with the letter 'Q'
 	key = cv2.waitKey(1) & 0xFF

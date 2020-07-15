@@ -22,7 +22,7 @@ visible = EC.visibility_of_element_located
 '''
 driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.create_options()
-driver.get("https://www.youtube.com/watch?v=SDfZY99vO3s&t=0s")
+driver.get("https://www.youtube.com/watch?v=SaZfg_5_i5A&list=PLxDvxeaAQ9csnc7DNA9wMUYPCojrBUFVH")
 '''
 
 #Reference to the buttons we are using
@@ -34,9 +34,9 @@ volumeBotton = "ytp-mute-button ytp-button"
 
 def OpenPlaylist():
     try:
-        driver.get("https://www.youtube.com/watch?v=Nj2U6rhnucI&list=PLyORnIW1xT6waC0PNjAMj33FdK2ngL_ik")
+        driver.get("https://www.youtube.com/watch?v=SaZfg_5_i5A&list=PLxDvxeaAQ9csnc7DNA9wMUYPCojrBUFVH")
         #Having the window minimized does affect selenium performance, comment the line below to have it react faster
-        #driver.minimize_window()
+        driver.minimize_window()
         volume5()
         sleep(1)
         shuffle = driver.find_element_by_xpath('//button[@aria-label="'+randomPlaylist+'"]')
